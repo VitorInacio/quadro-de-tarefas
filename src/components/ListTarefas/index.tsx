@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { Container } from "./styles";
+import { TarefaContext } from "../contexts/tarefaContext";
 
 export function ListTarefas () {
+
+    const { tarefas } = useContext(TarefaContext)
+
     return(
         <>
         <Container>
@@ -9,15 +14,18 @@ export function ListTarefas () {
                     Quadro 1
                 </h3>
 
-                <li>
-                    <div>
-                        <h4>
-                            Lanche
-                        </h4>
-                        <p>X-bacon com muito bacon</p>
-                    </div>
-
-                </li>
+                {tarefas.map((tarefa)) => {
+                    return (
+                        <li>
+                            <div>
+                                <h4>
+                                    {tarefa.titulo}
+                                </h4>
+                                <p>{tarefa.descricao}</p>
+                            </div>
+                        </li>
+                    )
+                }}
             </ul>
         </Container>
         </>

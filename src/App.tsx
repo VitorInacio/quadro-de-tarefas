@@ -4,7 +4,7 @@ import { ListTarefas } from "./components/ListTarefas";
 import { GlobalStyle } from "./styles/global";
 import { CustomModal } from "./components/CustomModal";
 import { useState } from "react";
-import { TarefasProvider } from "./components/contexts/tarefaContext";
+import { TarefasProvider } from "./contexts/tarefaContext";
 
 Modal.setAppElement("#root");
 

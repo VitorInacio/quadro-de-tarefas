@@ -16,8 +16,15 @@ createServer({
             const data = JSON.parse(request.requestBody)
             return schema.db.tarefas.insert(data)
         })
+
+        this.put('/api/tarefas', (schema, request) => {
+            const data = JSON.parse(request.requestBody)
+
+            return schema.db.tarefas.update(data.id, data)
+        })
     }
 })
+
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

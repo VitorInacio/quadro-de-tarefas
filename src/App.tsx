@@ -1,30 +1,37 @@
-import Modal from "react-modal";
-import { Header } from "./components/Header";
-import { ListTarefas } from "./components/ListTarefas";
-import { GlobalStyle } from "./styles/global";
-import { CustomModal } from "./components/CustomModal";
-import { useState } from "react";
-import { TarefasProvider } from "./contexts/tarefaContext";
+import { useState } from 'react'
+import Modal from 'react-modal'
+import { Header } from "./components/Header"
+import { ListTarefas } from "./components/ListTarefas"
+import { GlobalStyle } from "./styles/global"
+import { CustomModal } from './components/CustomModal'
+import { TarefasProvider } from './contexts/tarefaContext'
 
-Modal.setAppElement("#root");
+Modal.setAppElement('#root')
 
+// dontpad.com/profchines
 function App() {
-    const [isVisibleModal, setIsVisibleModal] = useState(false);
+
+    const [isVisibleModal, setIsVisibleModal] = useState(false)
 
     function abrirModal() {
-        setIsVisibleModal(true);
+        setIsVisibleModal(true)
     }
+
     function fecharModal() {
-        setIsVisibleModal(false);
+        setIsVisibleModal(false)
     }
 
     return (
         <>
             <TarefasProvider>
                 <GlobalStyle />
-                <Header abrirModal={abrirModal} />
+                <Header
+                    abrirModal={abrirModal}
+                />
 
-                <ListTarefas />
+                <ListTarefas
+                    abrirModal={abrirModal}
+                />
 
                 <CustomModal
                     modalVisible={isVisibleModal}
@@ -32,7 +39,7 @@ function App() {
                 />
             </TarefasProvider>
         </>
-    );
+    )
 }
 
-export default App;
+export default App
